@@ -38,6 +38,60 @@
    padding: 20px 200px;
 }
 
+.tracking-detail-order {
+   flex: 2;
+   flex-direction: row;
+   padding: 80px 100px;
+}
+
+.tracking-delivery {
+   display: flex;
+   padding-top: 80px;
+}
+
+.tracking-destination {
+   display: flex;
+   padding-top: 30px;
+}
+
+.img-tracking {
+   margin: 0px 20px 20px 0px;
+}
+
+.img-destination {
+   color: darkgray;
+   margin: 5px 20px 20px 0px;
+}
+
+.on-delivery {
+   margin: 0;
+}
+
+.on-destination {
+   margin: 0;
+   color: #4d4d4d;
+}
+
+.addres-destination {
+   color: #4d4d4d;
+}
+
+.order-id-order-item {
+   padding-right: 20px;
+}
+
+.line-order-tracking {
+   display: flex;
+   padding-bottom: 25px;
+   border-bottom: 1px solid rgba(206, 206, 206, 1);
+}
+
+.blank-area-tracking {
+   border-left: 2px dashed rgb(99, 95, 95);
+   margin-left: 15px;
+   height: 100px;
+}
+
 @media (max-width: 834px) {
    .img-maps-order {
       display: none;
