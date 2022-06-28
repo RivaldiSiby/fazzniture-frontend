@@ -6,6 +6,11 @@
   font-size: 13px;
 }
 
+.card-img-top {
+  width: 100%;
+  height: 200px;
+}
+
 @media (max-width: 600px) {
   .card-products {
     display: flex;
@@ -15,6 +20,10 @@
   .card-products > img {
     width: 100px;
     margin-bottom: 20px;
+  }
+  .card-img-top {
+    width: 100%;
+    height: 100%;
   }
 }
 

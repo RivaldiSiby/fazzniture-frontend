@@ -25,7 +25,6 @@ import {
   deleteParamsAction,
   setSort,
   setRange,
-  setPage,
 } from "../../redux/actionCreator/helpers";
 
 //Axios
@@ -190,13 +189,18 @@ class Products extends Component {
     }
     return (
       <>
-        <Navbar page="shop"/>
-        <Header title="Let's Shopping" desc="Find and buy the one you like" section="Shop" page="Product"/>
+        <Navbar page="shop" />
+        <Header
+          title="Let's Shopping"
+          desc="Find and buy the one you like"
+          section="Shop"
+          page="Product"
+        />
         <div className="container products-container">
           <div className="row justify-content-between px-4 px-md-0">
             <div className="col-12 col-md-3">
-              <div className="row">
-                <div className="col-6 col-md-12 my-md-3">
+              <div className="row justify-content-between gap-3">
+                <div className="col-5 col-md-12 my-md-3">
                   <div className="row">
                     <h5>CATEGORY</h5>
                     {categories.map((item) => (
@@ -341,7 +345,7 @@ class Products extends Component {
                   </div>
                 </div>
               </div>
-              <div className="row justify-content-between gap-md-1 text-center mt-md-4">
+              <div className="row justify-content-start text-center mt-md-4">
                 {errorGet ? (
                   <>
                     <h1 className="product-404 w-100">PRODUCTS NOT FOUND</h1>
