@@ -1,6 +1,6 @@
 // RequestAXIOS
 
-import { getProductsAxios, getProductByIdAxios,createNewProductAxios } from "../../services/products"
+import { getProductsAxios, getProductByIdAxios, createNewProductAxios } from "../../services/products"
 // ActionString
 import { getProductsString, getProductIdString, setStatus, createNewProduct } from "./actionString"
 
