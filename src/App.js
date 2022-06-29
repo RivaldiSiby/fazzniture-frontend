@@ -20,6 +20,7 @@ import Notification from './pages/Notification';
 import Blog from './pages/Blog';
 import OrderTracking from './pages/OrderTracking';
 import Reset from './pages/Reset/index.jsx';
+import CommingSoon from './pages/CommingSoon';
 // import PrivateRoute from "./components/PrivateRoute";
 // import PublicRoute from "./components/PublicRoute";
 
@@ -45,13 +46,13 @@ function App() {
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/order-tracking" element={<OrderTracking />} />
                   <Route path="/reset-password/:token" element={<Reset />} />
+                  <Route path="/comming-soon" element={<CommingSoon />} />
                   <Route path="*" element={<NotFound />} />
                </Routes>
             </Router>
          </PersistGate>
       </ReduxProvider>
    );
-
 }
 
 export default App;
