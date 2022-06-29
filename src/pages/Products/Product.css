@@ -71,16 +71,6 @@
   cursor: pointer;
 }
 
-.dropdown-content {
-  background-color: #212121;
-  padding: 10px;
-  color: white;
-  font-size: 12px;
-  width: 150px;
-  position: absolute;
-  z-index: 1;
-}
-
 @media (max-width: 600px) {
   .product-button-fav {
     top: 10px;
