@@ -303,7 +303,6 @@ export class Navbar extends Component {
                 setSearchParams(urlParams)
               }} />
           </form>
-        </div>
       </Fragment>
     )
   }
