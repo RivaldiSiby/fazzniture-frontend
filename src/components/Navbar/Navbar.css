@@ -70,8 +70,11 @@
   cursor: pointer;
 }
 .dropdown-content {
-  width:200px;
-  padding:0px;
+  width:170px;
+  padding-top:0px;
+  padding-bottom:0px;
+  padding-left:0px;
+  padding-right:0px;
   display: none;
   position: absolute;
   background-color: #000000;

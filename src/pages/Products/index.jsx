@@ -1,100 +1,89 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { connect } from "react-redux";
-import withHOC from "../../helpers/withHOC";
+import { connect } from 'react-redux';
+import withHOC from '../../helpers/withHOC';
 
 //assets
-import "./Product.css";
-import Drop from "../../assets/vector/dropdown.png";
-import GIF from "../../assets/gif/GIF.gif";
+import './Product.css';
+import Drop from '../../assets/vector/dropdown.png';
+import GIF from '../../assets/gif/GIF.gif';
 
 //componenets
-import Navbar from "../../components/Navbar";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import CategoryList from "../../components/CategoryList";
-import CheckBoxBrands from "../../components/CheckBoxBrands";
-import CardProduct from "../../components/CardProduct";
-import PageButton from "../../components/PageButton";
-import SizeButton from "../../components/SizeButton";
+import Navbar from '../../components/Navbar';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import CategoryList from '../../components/CategoryList';
+import CheckBoxBrands from '../../components/CheckBoxBrands';
+import CardProduct from '../../components/CardProduct';
+import PageButton from '../../components/PageButton';
+import SizeButton from '../../components/SizeButton';
 
 //ActionReducer
-import { getProductsAction } from "../../redux/actionCreator/products";
-import {
-  setColor,
-  deleteParamsAction,
-  setSort,
-  setRange,
-} from "../../redux/actionCreator/helpers";
+import { getProductsAction } from '../../redux/actionCreator/products';
+import { setColor, deleteParamsAction, setSort, setRange, setPage } from '../../redux/actionCreator/helpers';
 
 //Axios
-import {
-  getAllBrandsAxios,
-  getAllColorsAxios,
-  getAllCategoriesAxios,
-  getAllSizesAxios,
-} from "../../services/products";
+import { getAllBrandsAxios, getAllColorsAxios, getAllCategoriesAxios, getAllSizesAxios } from '../../services/products';
 
 class Products extends Component {
-  constructor() {
-    super();
-    this.state = {
-      categories: [],
-      colors: [],
-      sizes: [],
-      brands: [],
-      min_range: 0,
-      max_range: 0,
-      errorGet: false,
-      page: "",
-      totalPage: "",
-    };
-  }
+   constructor() {
+      super();
+      this.state = {
+         categories: [],
+         colors: [],
+         sizes: [],
+         brands: [],
+         min_range: 0,
+         max_range: 0,
+         errorGet: false,
+      };
+   }
 
-  getAllCategories = () => {
-    getAllCategoriesAxios()
-      .then((res) => {
-        this.setState({
-          categories: res.data.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  getAllBrands = () => {
-    getAllBrandsAxios()
-      .then((res) => {
-        this.setState({
-          brands: res.data.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  getAllSizes = () => {
-    getAllSizesAxios()
-      .then((res) => {
-        this.setState({
-          sizes: res.data.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  getAllColors = () => {
-    getAllColorsAxios()
-      .then((res) => {
-        this.setState({
-          colors: res.data.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+   getAllCategories = () => {
+      getAllCategoriesAxios()
+         .then((res) => {
+            this.setState({
+               categories: res.data.data,
+            });
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
+   getAllBrands = () => {
+      getAllBrandsAxios()
+         .then((res) => {
+            console.log(res.data.data);
+            this.setState({
+               brands: res.data.data,
+            });
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
+   getAllSizes = () => {
+      getAllSizesAxios()
+         .then((res) => {
+            this.setState({
+               sizes: res.data.data,
+            });
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
+   getAllColors = () => {
+      getAllColorsAxios()
+         .then((res) => {
+            this.setState({
+               colors: res.data.data,
+            });
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
 
   componentDidMount() {
     window.document.title = "Products";
@@ -314,38 +303,64 @@ class Products extends Component {
                     {sizes.map((item) => (
                       <SizeButton size={item.name} key={item.id} />
                     ))}
+
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-8">
-              <div className="d-flex justify-content-between mt-4 mt-md-0">
-                <div className="desc-pagination">Showing 1-12 of Results</div>
-                <div className="sort-by">
-                  <div className="dropdown">
-                    <span>
-                      Sort by <img src={Drop} alt="dropdown" />
-                    </span>
-                    <div className="dropdown-content">
-                      <div
-                        onClick={() => {
-                          dispatch(setSort("price", "desc"));
-                          setSearchParams(urlParams);
-                        }}
-                        className="more-expensive mb-3"
-                      >
-                        More Expensive
-                      </div>
-                      <div
-                        onClick={() => {
-                          dispatch(setSort("price", "asc"));
-                          setSearchParams(urlParams);
-                        }}
-                        className="more-cheap"
-                      >
-                        More Cheap
-                      </div>
-                    </div>
+                  <div className="col-md-8">
+                     <div className="d-flex justify-content-between mt-4 mt-md-0">
+                        <div className="desc-pagination">Showing 1-12 of {totalData} Results</div>
+                        <div className="sort-by">
+                           <div className="dropdown">
+                              <span>
+                                 Sort by <img src={Drop} alt="dropdown" />
+                              </span>
+                              <div className="dropdown-content">
+                                 <div
+                                    onClick={() => {
+                                       dispatch(setSort('price', 'desc'));
+                                       setSearchParams(urlParams);
+                                    }}
+                                    className="more-expensive mb-3"
+                                 >
+                                    More Expensive
+                                 </div>
+                                 <div
+                                    onClick={() => {
+                                       dispatch(setSort('price', 'asc'));
+                                       setSearchParams(urlParams);
+                                    }}
+                                    className="more-cheap"
+                                 >
+                                    More Cheap
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="row justify-content-between text-center mt-md-4">
+                        {errorGet ? (
+                           <>
+                              <h1 className="product-404">PRODUCTS NOT FOUND</h1>
+                              <img src={GIF} alt="gif" />
+                           </>
+                        ) : (
+                           data.map((data) => <CardProduct title={data.name} price={data.price} image={data.file} key={data.product_id} id={data.product_id} />)
+                        )}
+                     </div>
+                     {searchParams.get('page') === '' || searchParams.get('page') <= 1 ? (
+                        <></>
+                     ) : (
+                        <button onClick={this.prevLink} className="btn-link me-md-1">
+                           &laquo;
+                        </button>
+                     )}
+                     {errorGet ? <></> : pageItem.map((page) => <PageButton number={page} currentPage={active} />)}
+                     {searchParams.get('page') === '' || searchParams.get('page') > 1 ? (
+                        <></>
+                     ) : (
+                        <button onClick={this.nextLink} className="btn-link ms-md-1">
+                           &raquo;
+                        </button>
+                     )}
                   </div>
                 </div>
               </div>
@@ -374,29 +389,26 @@ class Products extends Component {
                   <PageButton number={page} currentPage={active} key={page} />
                 ))
               )}
+
             </div>
-          </div>
-        </div>
-        <Footer />
-      </>
-    );
-  }
+            <Footer />
+         </>
+      );
+   }
 }
 
 const mapStateToProps = (state) => {
-  const {
-    products: {
-      products: { data, meta },
-      products,
-    },
-    helpers: { urlParams },
-  } = state;
-  return {
-    data,
-    urlParams,
-    products,
-    meta,
-  };
+   const {
+      products: {
+         products: { data, meta },
+      },
+      helpers: { urlParams },
+   } = state;
+   return {
+      data,
+      meta,
+      urlParams,
+   };
 };
 
 export default connect(mapStateToProps)(withHOC(Products));

@@ -94,7 +94,7 @@
 .card-container {
    display: flex;
    flex-direction: row;
-   height: 550px;
+   height: 100%;
 }
 .card-picture {
    height: 550px;
@@ -125,6 +125,11 @@
    cursor: pointer;
 }
 
+.card-shop-button {
+   font-weight: bold;
+   cursor: pointer;
+}
+
 @media (max-width: 834px) {
    .jumbotron {
       padding: 20px 100px;
@@ -143,9 +148,22 @@
    .testimony-image-container {
       column-gap: 25px;
    }
+
+   .card-container {
+      flex-direction: column;
+   }
+
+   .card-picture {
+      height: 100%;
+      width: 100%;
+   }
+
+   .card-details-container {
+      padding: 20px;
+   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 428px) {
    .jumbotron {
       padding: 0px 10px;
    }
@@ -193,8 +211,4 @@
    .header-navbar {
       justify-content: center;
    }
-}
-.card-shop-button{
-    font-weight: bold;
-    cursor: pointer;
 }
