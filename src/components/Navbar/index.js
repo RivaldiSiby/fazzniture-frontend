@@ -230,7 +230,7 @@ export class Navbar extends Component {
                   />
                </form>
             </div>
-          </div>
+    
           <div className='navbar-2 col-12 col-md-4'>
             <div className={page === "home" ? "navbar-2-content navbar-underline" : "navbar-2-content"} onClick={() => { navigate("/") }}>HOME</div>
             <div className={page === "pages" ? "navbar-2-content navbar-underline dropdown" : "navbar-2-content dropdown"} >
