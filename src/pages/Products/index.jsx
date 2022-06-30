@@ -389,9 +389,10 @@ class Products extends Component {
                   <PageButton number={page} currentPage={active} key={page} />
                 ))
               )}
-
             </div>
             <Footer />
+            </div>
+           </div>
          </>
       );
    }
