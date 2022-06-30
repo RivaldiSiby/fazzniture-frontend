@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
-import Navbar from '../../components/Navbar';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import BlackButton from '../../components/Black-Button';
+import React, { Component } from "react";
+import Navbar from "../../components/Navbar";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import BlackButton from "../../components/Black-Button";
 
-import './ordertracking.css';
+import "./ordertracking.css";
 
 export default class OrderTracking extends Component {
+
    constructor() {
       super();
       this.state = {
          show: true,
       };
    }
+   componentDidMount() {
+    window.document.title = "Order Track";
+  }
+
    render() {
       return (
          <>
