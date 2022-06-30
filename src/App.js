@@ -79,8 +79,6 @@ function App() {
     </ReduxProvider>
   );
 
-=======
-
 }
 
 export default App;
